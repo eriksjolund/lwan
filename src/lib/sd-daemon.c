@@ -153,7 +153,7 @@ static int strv_split(char ***p, const char *value, const char separator) {
                 n_split++;
                 c = sep_pos + 1;
         }        
-
+ n_split = 1;
         if (!n_split)
                 return 0;
 
@@ -164,6 +164,8 @@ static int strv_split(char ***p, const char *value, const char separator) {
         }
 
         int i = 0;
+ *p[0]=copy;
+/*
         for (char *c = copy; *c; ) {
                 char *sep_pos = strchr(c, separator);
                 if (!sep_pos)
@@ -173,7 +175,7 @@ static int strv_split(char ***p, const char *value, const char separator) {
                 *p[i++] = c;
                 c = sep_pos + 1;
         }        
-
+*/
         return n_split;
 }
 
